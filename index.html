@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREG</title>
+    <link rel="icon" href="images/freg.png" type="image/x-icon">
+    <link href="css/css2.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        body {
+            background-color: #11534b;
+            min-height: 100vh;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            background-color: #198b84;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-button:hover {
+            color: #99f6e4;
+        }
+
+        .cta-button {
+            background-color: #fde047;
+            color: #1f2937;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #fcd34d;
+        }
+
+        .buy-button {
+            font-size: 0.8rem;
+            font-weight: 600;
+            background-color: #fde047;
+            color: #1f2937;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 11rem;
+            text-decoration: none;
+
+        }
+
+        .buy-button:hover {
+            background-color: #fcd34d;
+        }
+
+        .copy-ca {
+            font-size: 1rem;
+            font-weight: 600;
+            background-color: #fde047;
+            color: #1f2937;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%
+            text-decoration: none;
+        }
+
+        .copy-ca:hover {
+            background-color: #fcd34d;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .content {
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 3.75rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 50%;
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background-color: #115f5a80;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: overlay;
+        }
+
+        .decoration-1 {
+            position: absolute;
+            bottom: -1rem;
+            left: -1rem;
+            width: 8rem;
+            height: 8rem;
+            background-color: #198b84;
+            z-index: -1;
+        }
+
+        .decoration-2 {
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            width: 6rem;
+            height: 6rem;
+            background-color: #198b84;
+            z-index: -1;
+        }
+
+        .freg-section {
+            background: #198b84;
+            color: white;
+            padding: 6rem 2rem;
+        }
+
+        .freg-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .freg-image {
+            width: 45%;
+            border-radius: 0.25rem;
+            overflow: hidden;
+        }
+
+        .freg-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .freg-content {
+            width: 55%;
+        }
+
+        .freg-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .freg-text {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .gallery-section {
+            background-color: #11534b;
+            color: white;
+            padding: 6rem 2rem;
+            overflow: hidden;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-title {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+
+        .gallery-controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .gallery-button {
+            background: #198b84;
+            border: none;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .gallery-button:hover {
+            background: #444;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+            padding: 1rem 0;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: #198b84;
+            color: white;
+        }
+
+        .caption-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .caption-text {
+            font-size: 0.9rem;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        .progress-bar {
+            height: 2px;
+            background: #333;
+            margin-top: 2rem;
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        .progress-indicator {
+            height: 100%;
+            background: #fde047;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .how-to-buy {
+            margin-top: 4rem;
+            background: #198b84;
+            color: white;
+            padding: 6rem 2rem;
+        }
+
+        .how-to-buy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .how-to-buy-image {
+            width: 45%;
+            border-radius: 0.25rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .how-to-buy-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: left;
+            padding: 0 20px;
+            color: #fde047;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .how-to-buy-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .steps-list li {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+        }
+
+        .phantom-link {
+            color: #fde047;
+            text-decoration: none;
+        }
+
+        .footer {
+            color: white;
+            padding: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            max-width: 600px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-links {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            }
+
+            .copy-ca {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/freg.png" alt="FREG Logo">
+        </div>
+        <div class="nav-links">
+            <a href="https://dexscreener.com/solana/ag75qzukrorbgykpqv6bdnz9nbgfrgnskbmemua9koaz" class="nav-button">
+                <img src="fonts/dex-screener-seeklogo.svg" alt="Dex Screener" style="width: 24px; height: 24px;">
+            </a>
+            <a href="https://x.com/fregctosol/" class="nav-button">
+                <img src="fonts/icons8-x.svg" alt="Twitter" style="width: 24px; height: 24px;">
+            </a>
+            <a href="https://t.me/fregctoportal" class="nav-button">
+                <img src="fonts/icons8-telegram.svg" alt="Telegram" style="width: 24px; height: 24px;">
+            </a>
+            <a href="https://www.dextools.io/app/en/solana/pair-explorer/Ag75qzukRoRBgYKPqV6BDNz9NbgfrgNsKbmemuA9koAZ?t=1732108589888" class="nav-button">
+                <img src="fonts/dextools.svg" alt="Dextools" style="width: 24px; height: 24px;">
+            </a>
+            <a href="https://dexscreener.com/solana/ag75qzukrorbgykpqv6bdnz9nbgfrgnskbmemua9koaz" class="cta-button">Buy $FREG</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="content">
+            <h1>FREG Community on Solana</h1>
+            <p class="description">
+                $FREG is the cool frog that represents every culture, it’s the frog that shall unite everyone on the solana chain. Wherever you go, $FREG will always be there to accompany you :)
+            </p>
+            
+        <button class="copy-ca" onclick="copyToClipboard('7VR8w5qGc5mYcdscznMChDMdRHBeogko5TWCeDgZpump')">7VR8w5qGc5mYcdscznMChDMdRHBeogko5TWCeDgZpump</button>
+        </div>
+
+        <div class="hero-image-container">
+            <div class="hero-image">
+                <img src="images/freginpepe.png" alt="fregportrait">
+            </div>
+            <div class="decoration-1"></div>
+            <div class="decoration-2"></div>
+        </div>
+    </main>
+
+    <section class="freg-section">
+        <div class="freg-container">
+            <div class="freg-image">
+                <img src="images/fregsky.png" alt="FREG image">
+            </div>
+            <div class="freg-content">
+                <h2 class="freg-title">WHAT IS $FREG?</h2>
+                <p class="freg-text">
+                    In a misty forest, a charming and mysterious frog named Freg appeared everywhere, helping people and bringing peace. He knew every meme's troubles and had a way to make things right. Whispers about Freg spread through the solana community and neighboring trenches, leading Degens to flock to him. 
+                </p>
+                <p class="freg-text">
+                    With Freg's guidance, communities grew closer, and everyone learned to share the meadow. Freg was always there, listening to stories and laughing along with jokes. 
+                </p>
+                <p class="freg-text">
+                    Freg is a legend, appearing on Twitter for a moment, reminding people that unity could be found everywhere. 
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h2 class="gallery-title">FREG GALLERY</h2>
+                <div class="gallery-controls">
+                    <button class="gallery-button prev-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button class="gallery-button next-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="gallery-scroll">
+                <div class="gallery-item">
+                    <img src="images/image1.jpg" alt="FREG Image 1">
+                    <div class="gallery-item-caption">
+                        <div class="caption-title">Salute</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image2.jpg" alt="FREG Image 2">
+                    <div class="gallery-item-caption">
+                        <div class="caption-title">yo whos that</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image3.jpg" alt="FREG Image 3">
+                    <div class="gallery-item-caption">
+                        <div class="caption-title">lookin smug</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image4.jpg" alt="FREG Image 4">
+                    <div class="gallery-item-caption">
+                        <div class="caption-title">VOTED FOR TRUMP?</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image5.jpg" alt="FREG Image 5">
+                    <div class="gallery-item-caption">
+                        <div class="caption-title">EVERYONE IS FREG</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image6.jpg" alt="FREG Image 6">
+                    <div class="gallery-item-caption">
+                        <div class="caption-title">FREG TRUMP</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image7.jpg" alt="FREG Image 7">
+                    <div class="gallery-item-caption">
+                        <div class="caption-title">Mr Freg</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image8.jpg" alt="FREG Image 8">
+                    <div class="gallery-item-caption">
+                        <div class="caption-title">Fregtardio</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-indicator"></div>
+            </div>
+        </div>
+    </section>
+
+    <center>
+        <h2 class="how-to-buy-title">Freg Minigame</h2>
+        <div class="game_frame game_loaded" data-height="720" style="width: 1280px; height: 720px" data-width="1280"><iframe mozallowfullscreen="true" msallowfullscreen="true" frameborder="0" allowfullscreen="true" scrolling="no" src="index_1.html" id="game_drop" allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated; web-share" allowtransparency="true" webkitallowfullscreen="true" width="100%" height="100%"></iframe></div>
+
+    <section class="how-to-buy">
+        <div class="how-to-buy-container">
+            <div class="how-to-buy-content">
+                <h2 class="how-to-buy-title">HOW TO BUY</h2>
+                <ul class="steps-list">
+                    <li>STEP 1: DOWNLOAD THE <a href="https://phantom.app/" class="phantom-link">PHANTOM WALLET</a> CHROME/FIREFOX EXTENSION OR THE IOS/ANDROID APP.</li>
+                    <li>STEP 2: PURCHASE SOLANA ON A CENTRALIZED EXCHANGE AND SEND IT TO YOUR PHANTOM WALLET.</li>
+                    <li>STEP 3: GO TO THE SWAP TAB OF YOUR PHANTOM WALLET AND PASTE THE CONTRACT ADDRESS PROVIDED BELOW, THEN SWAP YOUR SOLANA FOR $FREG.</li>
+                    <li>STEP 4: GET BACK TO THE TRILLIONAIRE GRINDSET AND BE A FREG.</li>
+                </ul>
+                <a href="https://dexscreener.com/solana/ag75qzukrorbgykpqv6bdnz9nbgfrgnskbmemua9koaz" class="buy-button">$FREG on DEXScreener</a>
+            </div>
+        </div>
+    </section>
+</center>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">$FREG</div>
+            <p class="footer-disclaimer">fregcommunityonsol@gmail.com</p>
+            <div class="footer-links">
+                <a href="https://dexscreener.com/solana/ag75qzukrorbgykpqv6bdnz9nbgfrgnskbmemua9koaz" class="footer-link">
+                    <img src="fonts/dex-screener-seeklogo.svg" alt="Dex Screener" style="width: 24px; height: 24px;">
+                    CHART
+                </a>
+                <a href="https://x.com/fregctosol/" class="footer-link">
+                    <img src="fonts/icons8-x.svg" alt="Twitter" style="width: 24px; height: 24px;">
+                    TWITTER
+                </a>
+                <a href="https://t.me/fregctoportal" class="footer-link">
+                    <img src="fonts/icons8-telegram.svg" alt="Telegram" style="width: 24px; height: 24px;">
+                    TELEGRAM
+                </a>
+                <a href="https://www.dextools.io/app/en/solana/pair-explorer/Ag75qzukRoRBgYKPqV6BDNz9NbgfrgNsKbmemuA9koAZ?t=1732108589888" class="footer-link">
+                    <img src="fonts/dextools.svg" alt="Dextools" style="width: 24px; height: 24px;">
+                    DEXTOOLS
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Copy contract address to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Contract address copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Gallery scroll functionality
+        const gallery = document.querySelector('.gallery-scroll');
+        const prevButton = document.querySelector('.prev-button');
+        const nextButton = document.querySelector('.next-button');
+        const progressIndicator = document.querySelector('.progress-indicator');
+
+        // Update progress bar
+        function updateProgress() {
+            const scrollWidth = gallery.scrollWidth - gallery.clientWidth;
+            const scrolled = (gallery.scrollLeft / scrollWidth) * 100;
+            progressIndicator.style.width = `${scrolled}%`;
+        }
+
+        // Scroll buttons
+        nextButton.addEventListener('click', () => {
+            gallery.scrollBy({
+                left: 400 + 24, // image width + gap
+                behavior: 'smooth'
+            });
+        });
+
+        prevButton.addEventListener('click', () => {
+            gallery.scrollBy({
+                left: -(400 + 24), // image width + gap
+                behavior: 'smooth'
+            });
+        });
+
+        // Update progress bar on scroll
+        gallery.addEventListener('scroll', updateProgress);
+
+        // Initialize progress bar
+        updateProgress();
+    </script>
+</body>
+</html>
